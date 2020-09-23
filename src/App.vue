@@ -8,18 +8,21 @@
     <div id="searchbar">
       <input
         type="text"
+        v-bind:value="searchText"
+        v-on:input="searchText = $event.target.value"
         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       />
       <select
+        @change="chooseGenre"
         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       >
+        <option value="choose" selected disabled>Choose genre</option>
         <option value="all">All genres</option>
         <option value="literature">Literature</option>
-        <option value="sci-fi">Sci-fi</option>
         <option value="psychology">Psychology</option>
         <option value="philosophy">Philosophy</option>
       </select>
-      <button class="btn btn-blue">
+      <button @click="doSearch" class="btn btn-blue">
         search
       </button>
     </div>
@@ -27,7 +30,26 @@
   <router-view />
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      searchText: "",
+      searchGenre: "",
+      search: [],
+    };
+  },
+  methods: {
+    chooseGenre(event) {
+      this.searchGenre = event.target.value;
+    },
+    doSearch() {
+      console.log(this.searchText);
+      console.log(this.searchGenre);
+    },
+  },
+};
+</script>
 
 <style lang="scss">
 @import "assets/styles/variables";

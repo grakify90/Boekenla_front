@@ -1,25 +1,25 @@
 <template>
-  <Photos v-bind:photos="photos" />
+  <Books v-bind:books="books" />
 </template>
 
 <script>
 import axios from "axios";
-import Photos from "../components/Photos";
+import Books from "../components/Books";
 
 export default {
   name: "Home",
   components: {
-    Photos,
+    Books,
   },
   data() {
     return {
-      photos: [],
+      books: [],
     };
   },
   created() {
     axios
-      .get("https://jsonplaceholder.typicode.com/photos")
-      .then((res) => (this.photos = res.data))
+      .get("https://jsonplaceholder.typicode.com/photos?_limit=5")
+      .then((res) => (this.books = res.data))
       .catch((error) => console.log(error.message));
   },
 };

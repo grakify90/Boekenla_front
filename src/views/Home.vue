@@ -1,5 +1,7 @@
 <template>
-  <Books v-bind:books="books" />
+  <div id="page">
+    <Books v-bind:books="books" />
+  </div>
 </template>
 
 <script>
@@ -18,9 +20,11 @@ export default {
   },
   created() {
     axios
-      .get("https://jsonplaceholder.typicode.com/photos?_limit=5")
+      .get("https://jsonplaceholder.typicode.com/photos?_limit=15")
       .then((res) => (this.books = res.data))
       .catch((error) => console.log(error.message));
   },
 };
 </script>
+
+<style scoped></style>

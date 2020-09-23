@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bookitem">
     <p>
       {{ book.title }}
     </p>
@@ -18,4 +18,10 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.bookitem {
+  margin: 20px 0;
+  padding: 50px 0;
+  background-color: blanchedalmond;
+}
+</style>

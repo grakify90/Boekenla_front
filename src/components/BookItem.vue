@@ -11,9 +11,15 @@
       <h1>
         {{ book.title }}
       </h1>
-      <h2>
+      <h1>
         {{ book.author }}
-      </h2>
+      </h1>
+      <h1>{{ book.price }} euro</h1>
+    </div>
+    <div>
+      <router-link :to="{ name: 'Detail', params: { id: 1 } }"
+        ><button class="btn btn-blue">See details</button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -29,10 +35,20 @@ export default {
 .bookitem {
   max-height: 200px;
   margin: 20px 0;
-  padding: 20px 20px;
+  padding: 20px 30px;
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.btn {
+  @apply font-bold py-2 px-4 rounded;
+}
+.btn-blue {
+  @apply bg-blue-500 text-white;
+}
+.btn-blue:hover {
+  @apply bg-blue-600;
 }
 </style>

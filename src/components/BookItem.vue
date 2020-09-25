@@ -17,7 +17,7 @@
       <h1>{{ book.price }} euro</h1>
     </div>
     <div>
-      <router-link :to="{ name: 'Detail', params: { id: 1 } }"
+      <router-link :to="{ name: 'Detail', params: { id: book.id } }"
         ><button class="btn btn-blue">See details</button>
       </router-link>
     </div>

@@ -1,24 +1,6 @@
-# boekenla_front
+# Work in progress!
 
-## Project setup
-```
-npm install
-```
+## A little preview
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+This is how the app looks right now
+![Boekenla preview](https://github.com/grakify90/Boekenla_front/blob/development/Peek%202020-09-25%2011-27.gif)

@@ -5,8 +5,9 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 import Books from "../components/Books";
+import { booksData } from "../assets/constants";
 
 export default {
   name: "Home",
@@ -15,15 +16,15 @@ export default {
   },
   data() {
     return {
-      books: [],
+      books: booksData,
     };
   },
-  created() {
-    axios
-      .get("https://jsonplaceholder.typicode.com/photos?_limit=15")
-      .then((res) => (this.books = res.data))
-      .catch((error) => console.log(error.message));
-  },
+  // created() {
+  //   axios
+  //     .get("https://jsonplaceholder.typicode.com/photos?_limit=15")
+  //     .then((res) => (this.books = res.data))
+  //     .catch((error) => console.log(error.message));
+  // },
 };
 </script>
 

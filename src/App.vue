@@ -17,26 +17,26 @@
         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       >
         <option value="choose" selected disabled>Choose genre</option>
-        <option value="all">All genres</option>
-        <option value="literature">Literature</option>
-        <option value="psychology">Psychology</option>
-        <option value="philosophy">Philosophy</option>
+        <option v-bind:key="genre" v-for="genre in genres">
+          {{ genre }}
+        </option>
       </select>
-      <button @click="doSearch" class="btn btn-blue">
-        search
-      </button>
+      <button @click="doSearch" class="btn btn-blue">search</button>
     </div>
   </div>
   <router-view />
 </template>
 
 <script>
+import { genresData } from "./assets/constants";
+
 export default {
   data() {
     return {
       searchText: "",
       searchGenre: "",
       search: [],
+      genres: genresData,
     };
   },
   methods: {

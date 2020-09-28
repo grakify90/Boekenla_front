@@ -22,6 +22,7 @@
         </option>
       </select>
       <button @click="doSearch" class="btn btn-blue">search</button>
+      <button @click="resetSearch" class="btn btn-blue">reset</button>
     </div>
   </div>
   <router-view />
@@ -51,6 +52,11 @@ export default {
       this.search.genre = this.searchGenre;
       const payload = this.search;
       this.searchBooks(payload);
+    },
+    resetSearch() {
+      this.searchText = "";
+      this.searchGenre = "";
+      this.searchBooks({ text: "", genre: "all genres" });
     },
   },
 };

@@ -14,22 +14,26 @@ export default {
         const searchTextArray = text.split(" ")
 
         const filteredBooks = state.books.filter(book => {
-            let combinedStrings = book.title.concat(" ", book.author).toLowerCase()
-            let combinedStringsArray = combinedStrings.split(" ")
-            let numOfHits = 0
-            for (let i = 0; i < searchTextArray.length; i++) {
-                for (let j = 0; j < combinedStringsArray.length; j++) {
-                    if (combinedStringsArray[j] === searchTextArray[i]) {
-                        numOfHits = numOfHits + 1
-                        j = combinedStringsArray.length
+            if (searchTextArray[0]) {
+                let combinedStrings = book.title.concat(" ", book.author).toLowerCase()
+                let combinedStringsArray = combinedStrings.split(" ")
+                let numOfHits = 0
+                for (let i = 0; i < searchTextArray.length; i++) {
+                    for (let j = 0; j < combinedStringsArray.length; j++) {
+                        if (combinedStringsArray[j] === searchTextArray[i]) {
+                            numOfHits = numOfHits + 1
+                            j = combinedStringsArray.length
+                        }
                     }
                 }
+                return numOfHits === searchTextArray.length
+            } else {
+                return book
             }
-            console.log(numOfHits)
-            return numOfHits === searchTextArray.length
+
         }).filter(book => {
             return book.genre.find(genreItem => {
-                if (genre) {
+                if (genre && genre !== "all genres") {
                     return genreItem === genre
                 } else {
                     return book

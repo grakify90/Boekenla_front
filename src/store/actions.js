@@ -4,4 +4,9 @@ export default {
     }, payload) => {
         commit("addBook", payload);
     },
+    searchBooks: ({
+        commit
+    }, payload) => {
+        commit("searchThroughBooks", payload)
+    }
 };

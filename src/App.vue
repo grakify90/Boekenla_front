@@ -28,26 +28,29 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default {
   data() {
     return {
       searchText: "",
       searchGenre: "",
-      search: [],
+      search: { text: "", genre: "" },
     };
   },
   computed: {
-    ...mapState(["genres"]),
+    ...mapState(["genres", "books", "filteredBooks"]),
   },
   methods: {
+    ...mapActions(["searchBooks"]),
     chooseGenre(event) {
       this.searchGenre = event.target.value;
     },
     doSearch() {
-      console.log(this.searchText);
-      console.log(this.searchGenre);
+      this.search.text = this.searchText;
+      this.search.genre = this.searchGenre;
+      const payload = this.search;
+      this.searchBooks(payload);
     },
   },
 };

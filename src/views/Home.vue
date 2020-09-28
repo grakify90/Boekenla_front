@@ -1,6 +1,6 @@
 <template>
   <div id="page">
-    <Books v-bind:books="books" />
+    <Books v-bind:books="filteredBooks" />
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapState(["books"]),
+    ...mapState(["filteredBooks"]),
   },
   // created() {
   //   axios

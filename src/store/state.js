@@ -5,5 +5,6 @@ import {
 
 export default {
     genres: genresData,
-    books: booksData
+    books: booksData,
+    filteredBooks: booksData
 };

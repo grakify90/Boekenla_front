@@ -7,7 +7,7 @@
 <script>
 // import axios from "axios";
 import Books from "../components/Books";
-import { booksData } from "../assets/constants";
+import { mapState } from "vuex";
 
 export default {
   name: "Home",
@@ -15,9 +15,10 @@ export default {
     Books,
   },
   data() {
-    return {
-      books: booksData,
-    };
+    return {};
+  },
+  computed: {
+    ...mapState(["books"]),
   },
   // created() {
   //   axios

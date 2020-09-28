@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { genresData } from "./assets/constants";
+import { mapState } from "vuex";
 
 export default {
   data() {
@@ -36,8 +36,10 @@ export default {
       searchText: "",
       searchGenre: "",
       search: [],
-      genres: genresData,
     };
+  },
+  computed: {
+    ...mapState(["genres"]),
   },
   methods: {
     chooseGenre(event) {

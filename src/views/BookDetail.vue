@@ -14,7 +14,7 @@
 <script>
 import router from "../router";
 import BookItemDetail from "../components/BookItemDetail";
-import { booksData } from "../assets/constants";
+import { mapState } from "vuex";
 
 export default {
   name: "Detail",
@@ -26,12 +26,14 @@ export default {
     return {
       id: 0,
       currentBook: {},
-      allBooks: booksData,
     };
+  },
+  computed: {
+    ...mapState(["books"]),
   },
   created() {
     this.id = +this.$route.params.id;
-    this.currentBook = booksData.find((book) => book.id === this.id);
+    this.currentBook = this.books.find((book) => book.id === this.id);
   },
   methods: {
     navigate() {
